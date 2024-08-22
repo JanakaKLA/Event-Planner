@@ -53,10 +53,7 @@ exports.login = async (req, res, next) => {
 
        
         const user = await User.findOne({ email });
-        // console.log(email)
-        // console.log(password)
-        // console.log(user);
-        // console.log(user.password)
+ 
 
         if(!user) return next(new createError('User not found!',404));
         const hashedPassword = await bcrypt.hash(user.password, 12);
